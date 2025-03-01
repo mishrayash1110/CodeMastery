@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMastery - Video Tutorials</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #1c1c1e, #2e2e2e);
+            color: #e0e0e0;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        .navbar {
+            background: linear-gradient(to right, #444, #2a2a2a);
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+        .navbar a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2em;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #66b2ff;
+        }
+        .container {
+            margin-top: 60px;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3.5em;
+            font-weight: bold;
+            background: linear-gradient(to right, #66b2ff, #ff66b2);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+        .video-tutorials {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .tutorial-card {
+            background: #333;
+            padding: 20px;
+            border-radius: 12px;
+            width: 300px;
+            text-align: left;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .tutorial-card h2 {
+            color: #ff66b2;
+            font-size: 1.8em;
+        }
+        .tutorial-card p {
+            color: #ccc;
+            font-size: 1.1em;
+        }
+        .video-container {
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        .btn {
+            background-color: #3a3a3c;
+            color: #e0e0e0;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .btn:hover {
+            background-color: #505050;
+            transform: scale(1.05);
+        }
+        .progress {
+            width: 100%;
+            background-color: #444;
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+            height: 30px;
+        }
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background-color: #66b2ff;
+            text-align: center;
+            line-height: 30px;
+            color: #fff;
+            font-weight: bold;
+            transition: width 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="course.html">Courses</a>
+        <a href="PP.html">Quiz</a>
+        <a href="video.html">Video</a>
+	<a href="forem.html">Forum</a>
+    </div>
+
+    <div class="container">
+        <h1>Video Tutorials</h1>
+
+        <!-- Video Tutorials Section -->
+        <div class="video-tutorials">
+            <!-- Tutorial Card 1 -->
+            <div class="tutorial-card">
+                <h2>Introduction to JavaScript</h2>
+                <p>Learn the basics of JavaScript, including variables, functions, and loops.</p>
+                <button class="btn" onclick="showVideo('https://www.youtube.com/embed/hdI2bqOjy3c')">Watch Tutorial</button>
+            </div>
+            <!-- Tutorial Card 2 -->
+            <div class="tutorial-card">
+                <h2>HTML & CSS Basics</h2>
+                <p>Understand the structure of HTML and styling with CSS for building web pages.</p>
+                <button class="btn" onclick="showVideo('https://www.youtube.com/embed/pQN-pn6TTjE')">Watch Tutorial</button>
+            </div>
+            <!-- Tutorial Card 3 -->
+            <div class="tutorial-card">
+                <h2>Python Programming</h2>
+                <p>Learn the fundamentals of Python programming and its common use cases.</p>
+                <button class="btn" onclick="showVideo('https://www.youtube.com/embed/rfscVS0vtbw')">Watch Tutorial</button>
+            </div>
+        </div>
+
+        <!-- Video Container -->
+        <div id="video-container" class="video-container" style="display:none;">
+            <iframe id="tutorial-video" width="100%" height="500" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress">
+            <div class="progress-bar" id="progress-bar">0%</div>
+        </div>
+    </div>
+
+    <script>
+        // Function to show the selected video
+        function showVideo(videoUrl) {
+            // Set the video URL in the iframe
+            document.getElementById('tutorial-video').src = videoUrl;
+            // Show the video container
+            document.getElementById('video-container').style.display = 'block';
+            
+            // Update the progress bar as the user starts watching the video
+            var progressBar = document.getElementById('progress-bar');
+            progressBar.style.width = '50%'; // This is just a simulation, you can add real progress tracking here
+            progressBar.innerText = '50%';
+        }
+    </script>
+</body>
+</html>

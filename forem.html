@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMastery - Community Forum</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #1c1c1e, #2e2e2e);
+            color: #e0e0e0;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            text-align: center;
+        }
+        .navbar {
+            background: linear-gradient(to right, #444, #2a2a2a);
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        .navbar a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #66b2ff;
+        }
+        .forum-container {
+            margin-top: 100px;
+            padding: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .post-box {
+            background: #333;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .post-box input, .post-box textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+            background: #222;
+            color: #e0e0e0;
+        }
+        .post-box button {
+            background: linear-gradient(to right, #66b2ff, #ff66b2);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+        .post-box button:hover {
+            background: linear-gradient(to right, #ff66b2, #66b2ff);
+        }
+        .post {
+            background: #444;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+        .post .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .reply-box {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #555;
+            border-radius: 8px;
+        }
+        .reply {
+            background: #666;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="course.html">Courses</a>
+        <a href="PP.html">Quiz</a>
+        <a href="video.html">Video</a>
+	<a href="forem.html">Forum</a>
+    </div>
+    
+    <div class="forum-container">
+        <h1>Community Forum</h1>
+        <div class="post-box">
+            <input type="text" id="username" placeholder="Your Name">
+            <textarea id="postContent" placeholder="Write something..."></textarea>
+            <button onclick="createPost()">Post</button>
+        </div>
+        <div id="forumPosts"></div>
+    </div>
+
+    <script>
+        function createPost() {
+            let username = document.getElementById("username").value.trim();
+            let content = document.getElementById("postContent").value.trim();
+            if (username === "" || content === "") return;
+            
+            let post = document.createElement("div");
+            post.classList.add("post");
+            post.innerHTML = `<strong>${username}</strong> <p>${content}</p>
+                <div class='actions'>
+                    <button onclick="toggleReplyBox(this)">Reply</button>
+                    <button onclick="deletePost(this)">Delete</button>
+                </div>
+                <div class='reply-box'>
+                    <input type='text' placeholder='Write a reply...'>
+                    <button onclick='postReply(this)'>Submit</button>
+                    <div class='replies'></div>
+                </div>`;
+            document.getElementById("forumPosts").prepend(post);
+            document.getElementById("postContent").value = "";
+        }
+
+        function toggleReplyBox(button) {
+            let replyBox = button.parentElement.nextElementSibling;
+            replyBox.style.display = replyBox.style.display === "block" ? "none" : "block";
+        }
+
+        function postReply(button) {
+            let replyInput = button.previousElementSibling;
+            let replyText = replyInput.value.trim();
+            if (replyText === "") return;
+            
+            let reply = document.createElement("div");
+            reply.classList.add("reply");
+            reply.innerText = replyText;
+            button.nextElementSibling.appendChild(reply);
+            replyInput.value = "";
+        }
+
+        function deletePost(button) {
+            button.parentElement.parentElement.remove();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMastery - Courses</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #2e2e2e, #121212);
+            color: #e0e0e0;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            text-align: center;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+        .navbar {
+            background: linear-gradient(to right, #2a2a2a, #444);
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+        .navbar a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2em;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #66b2ff;
+        }
+        .content {
+            margin-top: 60px; /* Adjust for navbar */
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3.5em;
+            font-weight: bold;
+            background: linear-gradient(to right, #66b2ff, #ff66b2);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+        .course-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .course-card {
+            background: #333;
+            padding: 30px;
+            border-radius: 12px;
+            width: 280px;
+            box-sizing: border-box;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        .course-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+        .course-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+        .course-card h3 {
+            color: #ff66b2;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        .course-card p {
+            color: #ccc;
+            margin: 10px 0;
+        }
+        .progress-container {
+            width: 100%;
+            background-color: #444;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .progress-bar {
+            width: 0;
+            height: 20px;
+            background-color: #66b2ff;
+            border-radius: 8px;
+            transition: width 1s ease-in-out;
+        }
+        .course-card a {
+            text-decoration: none;
+            background: linear-gradient(to right, #66b2ff, #ff66b2);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .course-card a:hover {
+            background: linear-gradient(to right, #ff66b2, #66b2ff);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .course-card {
+                width: 45%;
+            }
+        }
+        @media (max-width: 480px) {
+            .course-card {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="course.html">Courses</a>
+        <a href="PP.html">Quiz</a>
+        <a href="video.html">Video</a>
+	<a href="forem.html">Forum</a>
+    </div>
+
+    <div class="content">
+        <h1>Our Coding Courses</h1>
+        <div class="course-list">
+            <!-- Python Course Card -->
+            <div class="course-card">
+                <img src="ima1-removebg-preview.png" alt="Python Logo">
+                <h3>Python Programming</h3>
+                <p>Master the basics of Python and start building projects.</p>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 50%"></div> <!-- Progress 50% -->
+                </div>
+                <a href="#">Start Learning</a>
+            </div>
+            
+            <!-- JavaScript Course Card -->
+            <div class="course-card">
+                <img src="ima2-removebg-preview (1).png" alt="JavaScript Logo">
+                <h3>JavaScript Essentials</h3>
+                <p>Learn JavaScript, the core language for web development.</p>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 75%"></div> <!-- Progress 75% -->
+                </div>
+                <a href="#">Start Learning</a>
+            </div>
+
+            <!-- HTML & CSS Course Card -->
+            <div class="course-card">
+                <img src="ima3-removebg-preview.png" alt="HTML Logo">
+                <h3>HTML & CSS</h3>
+                <p>Design beautiful webpages and make your site responsive.</p>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 30%"></div> <!-- Progress 30% -->
+                </div>
+                <a href="#">Start Learning</a>
+            </div>
+
+            <!-- Java Course Card -->
+            <div class="course-card">
+                <img src="ima4-removebg-preview.png" alt="Java Logo">
+                <h3>Java Programming</h3>
+                <p>Learn Java and become proficient in object-oriented programming.</p>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 60%"></div> <!-- Progress 60% -->
+                </div>
+                <a href="#">Start Learning</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // You can dynamically change the progress bar based on user's progress if needed
+    </script>
+</body>
+</html>

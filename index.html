@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMastery - Home</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #2e2e2e, #121212);
+            color: #e0e0e0;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            text-align: center;
+            background-attachment: fixed;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        .navbar {
+            background: linear-gradient(to right, #2a2a2a, #444);
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+        .navbar a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2em;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #66b2ff;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding-top: 60px;
+            background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+            border-radius: 10px;
+        }
+        h1 {
+            font-size: 3.5em;
+            font-weight: bold;
+            animation: fadeIn 1s ease-in-out;
+            background: linear-gradient(to right, #66b2ff, #ff66b2);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+        }
+        p {
+            font-size: 1.2em;
+            margin: 15px 0;
+            max-width: 600px;
+            line-height: 1.6;
+            animation: fadeIn 1.5s ease-in-out;
+            color: #cccccc;
+        }
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+        .btn {
+            background: linear-gradient(to right, #4d4d4d, #666);
+            color: #e0e0e0;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+        }
+        .btn:hover {
+            background: linear-gradient(to right, #66b2ff, #ff66b2);
+            transform: scale(1.1);
+        }
+        .btn:active {
+            background: linear-gradient(to right, #0059b3, #ff4081);
+            transform: scale(1.05);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Courses Section */
+        .courses-section {
+            background: #222222;
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 40px;
+            padding-bottom: 100px; /* Ensure scrollable space */
+        }
+        .courses-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #66b2ff;
+        }
+        .course {
+            background: #333;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 20px;
+            display: inline-block;
+            width: calc(33% - 60px);
+            box-sizing: border-box;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        .course:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+        .course img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+        .course h3 {
+            color: #ff66b2;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        .course p {
+            color: #ccc;
+            margin: 10px 0;
+        }
+        .course a {
+            text-decoration: none;
+            background: linear-gradient(to right, #66b2ff, #ff66b2);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .course a:hover {
+            background: linear-gradient(to right, #ff66b2, #66b2ff);
+        }
+
+        /* Make the page scrollable */
+        .content {
+            padding-bottom: 100px; /* Ensure there's space at the bottom */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .course {
+                width: calc(50% - 60px);
+            }
+        }
+        @media (max-width: 480px) {
+            .course {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="course.html">Courses</a>
+        <a href="PP.html">Quiz</a>
+        <a href="video.html">Video</a>
+	<a href="forem.html">Forum</a>
+    </div>
+    <div class="content">
+        <div class="container">
+            <h1 id="title">Welcome to CodeMastery</h1>
+            <p id="description">Learn coding with interactive exercises, video tutorials, and fun quizzes. Start your coding journey now!</p>
+            <div class="buttons">
+                <button class="btn start" onclick="startLearning()">Start Learning</button>
+                <button class="btn explore" onclick="exploreCourses()">Explore Courses</button>
+            </div>
+        </div>
+
+        <!-- Sample Courses Section -->
+        <div class="courses-section">
+            <h2>Our Popular Courses</h2>
+            <div class="course">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Python_logo_2014.svg/1280px-Python_logo_2014.svg.png" alt="Python Logo">
+                <h3>Intro to Python</h3>
+                <p>Start your Python journey with the basics and build your first programs!</p>
+                <a href="#">Explore</a>
+            </div>
+            <div class="course">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png" alt="HTML Logo">
+                <h3>Web Development</h3>
+                <p>Learn HTML, CSS, and JavaScript to create beautiful websites.</p>
+                <a href="#">Explore</a>
+            </div>
+            <div class="course">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Java_logo.svg/2560px-Java_logo.svg.png" alt="Java Logo">
+                <h3>Java Programming</h3>
+                <p>Master Java and become proficient in object-oriented programming.</p>
+                <a href="#">Explore</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function startLearning() {
+            alert("Redirecting to Learning Page...");
+        }
+        function exploreCourses() {
+            alert("Redirecting to Courses Page...");
+        }
+    </script>
+</body>
+</html>
